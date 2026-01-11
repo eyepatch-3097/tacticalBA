@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Tactical BA Interview Playbook | DotSwitch</title>
+    
+    <!-- Google Fonts: Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Custom Config for Brand Colors -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            blue: '#0f172a', // Slate 900 - Dark Text
+                            accent: '#f97316', // Orange 500 - Primary Action
+                            light: '#f8fafc', // Slate 50
+                        }
+                    },
+                    animation: {
+                        'scroll': 'scroll 30s linear infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                        'float-delayed': 'float 6s ease-in-out 3s infinite',
+                        'float-fast': 'float 4s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        scroll: {
+                            '0%': { transform: 'translateX(0)' },
+                            '100%': { transform: 'translateX(-100%)' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-15px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #ffffff;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #f97316;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #ea580c;
+        }
+
+        /* Particle Canvas */
+        #particles-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            opacity: 0.6; /* Increased opacity for white bg */
+            pointer-events: none;
+        }
+
+        /* Hide generic logo slider overflow */
+        .logo-slider {
+            mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+        }
+        
+        /* Document Preview Shadow */
+        .doc-preview {
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            transition: transform 0.3s ease;
+        }
+        .doc-preview:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Glassmorphism for floating cards */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.15);
+        }
+    </style>
+</head>
+<body class="font-sans text-slate-800 bg-slate-50 antialiased overflow-x-hidden">
+
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 bg-white/80 backdrop-blur-md border-b border-white/20 py-4 shadow-sm">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold tracking-tighter flex items-center gap-2 text-brand-blue">
+                <img src="https://res.cloudinary.com/do7w7isgi/image/upload/v1768156719/Untitled_256_x_256_px_yhlwhz.png" alt="DotSwitch Logo" class="w-8 h-8 rounded-lg shadow-lg shadow-orange-500/30">
+                DotSwitch<span class="text-brand-accent">.</span>
+            </a>
+            <div class="hidden md:flex space-x-8 font-medium text-sm text-slate-600">
+                <a href="#features" class="hover:text-brand-accent transition-colors">Features</a>
+                <a href="#blueprint" class="hover:text-brand-accent transition-colors">The Blueprint</a>
+                <a href="#testimonials" class="hover:text-brand-accent transition-colors">Reviews</a>
+                <a href="#preview" class="hover:text-brand-accent transition-colors">Preview</a>
+            </div>
+            <a href="#pricing" class="bg-gradient-to-r from-brand-blue to-slate-800 hover:to-slate-900 text-white px-6 py-2 rounded-full font-bold text-sm transition-all transform hover:scale-105 shadow-lg shadow-brand-blue/20">
+                Get Access
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative pt-32 pb-20 px-6 bg-gradient-to-br from-blue-50 via-white to-orange-50 overflow-hidden">
+        <!-- Canvas for Particles -->
+        <canvas id="particles-canvas"></canvas>
+
+        <div class="container mx-auto relative z-10">
+            <div class="flex flex-col lg:flex-row items-center gap-16">
+                
+                <!-- Left Content -->
+                <div class="lg:w-1/2 text-left space-y-8 animate-fade-in-up">
+                    <div class="inline-flex items-center gap-2 bg-white border border-orange-100 px-4 py-1.5 rounded-full text-brand-accent font-bold text-xs uppercase tracking-wide shadow-sm">
+                        <span class="w-2 h-2 rounded-full bg-brand-accent animate-pulse"></span>
+                        For Aspiring Business Analysts
+                    </div>
+                    
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-brand-blue leading-tight tracking-tight">
+                        Crack Business Analyst Roles at <br class="hidden md:block" />
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-red-600">Top Companies</span> <br class="hidden md:block" />
+                        with our Tactical BA Playbook.
+                    </h1>
+                    
+                    <p class="text-lg text-slate-600 max-w-xl leading-relaxed">
+                        Stop memorizing definitions. Start solving problems. The tactical playbook designed to help you crack the case study rounds at the world's best firms.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row gap-4 pt-4">
+                        <a href="#pricing" class="px-8 py-4 bg-gradient-to-r from-brand-accent to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white rounded-xl font-bold text-lg shadow-xl shadow-orange-500/20 transition-all transform hover:-translate-y-1 w-full sm:w-auto text-center flex items-center justify-center gap-2">
+                            <span>Get Playbook @ ₹249</span>
+                            <span class="line-through text-white/70 text-base font-medium">₹999</span>
+                        </a>
+                        <a href="#preview" class="px-8 py-4 bg-white border-2 border-slate-200 text-slate-700 hover:border-brand-accent hover:text-brand-accent rounded-xl font-bold text-lg transition-all w-full sm:w-auto flex items-center justify-center gap-2">
+                            <i data-lucide="eye" class="w-5 h-5"></i> View Preview
+                        </a>
+                    </div>
+                    
+                    <div class="pt-4 flex items-center gap-4 text-sm text-slate-500 font-medium">
+                        <div class="flex -space-x-2">
+                            <div class="w-8 h-8 rounded-full bg-slate-200 border-2 border-white"></div>
+                            <div class="w-8 h-8 rounded-full bg-slate-300 border-2 border-white"></div>
+                            <div class="w-8 h-8 rounded-full bg-slate-400 border-2 border-white"></div>
+                        </div>
+                        <p>Trusted by <span class="text-brand-blue font-bold">1,200+</span> Career Switchers</p>
+                    </div>
+                </div>
+
+                <!-- Right Content (Image + Floating Cards) -->
+                <div class="lg:w-1/2 relative w-full flex justify-center lg:justify-end">
+                    <!-- Main Image Container -->
+                    <div class="relative w-full max-w-[500px]">
+                        <!-- Decorative Blob -->
+                        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-gradient-to-tr from-blue-200/50 to-orange-200/50 rounded-full blur-3xl opacity-60"></div>
+                        
+                        <!-- Main Image -->
+                        <img src="https://i.pinimg.com/1200x/84/e5/73/84e5734228dd7344e38dcb977894b096.jpg" alt="Business Analyst Playbook Cover" class="relative rounded-2xl shadow-2xl border border-white/50 w-full object-cover z-10 rotate-2 hover:rotate-0 transition-transform duration-500">
+
+                        <!-- Floating Card 1: Case Studies -->
+                        <div class="absolute -top-6 -right-6 md:-right-12 z-20 glass-card p-4 rounded-xl flex items-center gap-3 animate-float max-w-[200px] border-l-4 border-l-blue-500">
+                            <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center text-brand-blue shrink-0">
+                                <i data-lucide="file-text" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-slate-500 font-semibold uppercase">Practical</p>
+                                <p class="font-bold text-brand-blue text-sm leading-tight">45 Interview Case Studies</p>
+                            </div>
+                        </div>
+
+                        <!-- Floating Card 2: Audio Prep -->
+                        <div class="absolute top-1/2 -left-8 md:-left-16 z-20 glass-card p-4 rounded-xl flex items-center gap-3 animate-float-delayed max-w-[220px] border-l-4 border-l-orange-500">
+                            <div class="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center text-brand-accent shrink-0">
+                                <i data-lucide="headphones" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-slate-500 font-semibold uppercase">On The Go</p>
+                                <p class="font-bold text-brand-blue text-sm leading-tight">Audio Interview Prep</p>
+                            </div>
+                        </div>
+
+                        <!-- Floating Card 3: Modules -->
+                        <div class="absolute -bottom-10 right-4 z-20 glass-card p-4 rounded-xl flex items-center gap-3 animate-float-fast max-w-[200px] border-l-4 border-l-green-500">
+                            <div class="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center text-green-600 shrink-0">
+                                <i data-lucide="layers" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-slate-500 font-semibold uppercase">Comprehensive</p>
+                                <p class="font-bold text-brand-blue text-sm leading-tight">15 Core Modules</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Logo Marquee -->
+        <div class="relative z-10 w-full mt-24 py-12 border-y border-slate-100 bg-white logo-slider overflow-hidden">
+            <p class="text-center text-slate-400 text-xs font-bold uppercase tracking-widest mb-10">Crack Interviews At</p>
+            <div class="flex whitespace-nowrap w-full overflow-hidden group">
+                <div class="flex animate-scroll hover:[animation-play-state:paused] gap-20 items-center px-4">
+                    <!-- Logos - Increased Sizes -->
+                    <img src="https://img.icons8.com/?size=100&id=fQDK2sCN4Eh1&format=png&color=000000" class="h-10 md:h-14 object-contain grayscale hover:grayscale-0 transition-all opacity-60 hover:opacity-100" alt="Google">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/960px-Microsoft_logo.svg.png" class="h-8 md:h-12 object-contain grayscale hover:grayscale-0 transition-all opacity-60 hover:opacity-100" alt="Microsoft">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0Rz9FTCF77OwqmmDXyIIkffi2LV4-l83y2g&s" class="h-8 md:h-12 object-contain grayscale hover:grayscale-0 transition-all opacity-60 hover:opacity-100" alt="Accenture">
+                    <img src="https://i.pinimg.com/736x/a4/90/79/a490795ee21746ab18485b2fedb87b80.jpg" class="h-12 md:h-16 object-contain grayscale hover:grayscale-0 transition-all opacity-60 hover:opacity-100 mix-blend-multiply" alt="PwC">
+                    <img src="https://images.seeklogo.com/logo-png/8/2/kpmg-logo-png_seeklogo-80055.png" class="h-8 md:h-12 object-contain grayscale hover:grayscale-0 transition-all opacity-60 hover:opacity-100" alt="KPMG">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/EY_logo_2019.svg/1200px-EY_logo_2019.svg.png" class="h-10 md:h-14 object-contain grayscale hover:grayscale-0 transition-all opacity-60 hover:opacity-100" alt="EY">
+                    
+                    <!-- Duplicate for loop -->
+                    <img src="https://img.icons8.com/?size=100&id=fQDK2sCN4Eh1&format=png&color=000000" class="h-10 md:h-14 object-contain grayscale hover:grayscale-0 transition-all opacity-60 hover:opacity-100" alt="Google">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/960px-Microsoft_logo.svg.png" class="h-8 md:h-12 object-contain grayscale hover:grayscale-0 transition-all opacity-60 hover:opacity-100" alt="Microsoft">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0Rz9FTCF77OwqmmDXyIIkffi2LV4-l83y2g&s" class="h-8 md:h-12 object-contain grayscale hover:grayscale-0 transition-all opacity-60 hover:opacity-100" alt="Accenture">
+                    <img src="https://i.pinimg.com/736x/a4/90/79/a490795ee21746ab18485b2fedb87b80.jpg" class="h-12 md:h-16 object-contain grayscale hover:grayscale-0 transition-all opacity-60 hover:opacity-100 mix-blend-multiply" alt="PwC">
+                    <img src="https://images.seeklogo.com/logo-png/8/2/kpmg-logo-png_seeklogo-80055.png" class="h-8 md:h-12 object-contain grayscale hover:grayscale-0 transition-all opacity-60 hover:opacity-100" alt="KPMG">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/EY_logo_2019.svg/1200px-EY_logo_2019.svg.png" class="h-10 md:h-14 object-contain grayscale hover:grayscale-0 transition-all opacity-60 hover:opacity-100" alt="EY">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Features / What's Inside -->
+    <section id="features" class="py-20 bg-slate-50 relative overflow-hidden">
+        <!-- Background Splatter -->
+        <div class="absolute top-0 left-0 w-full h-full overflow-hidden opacity-30 pointer-events-none">
+            <div class="absolute -top-24 -left-24 w-96 h-96 bg-blue-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob"></div>
+            <div class="absolute top-24 -right-24 w-96 h-96 bg-orange-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-2000"></div>
+        </div>
+
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-brand-blue mb-4">Not Just a PDF. A Weapon.</h2>
+                <p class="text-slate-600 max-w-2xl mx-auto">This isn't generic theory. This is the exact framework used to clear senior analyst rounds.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="bg-white p-8 rounded-2xl border border-slate-100 hover:border-blue-500/30 transition-all hover:shadow-xl hover:shadow-blue-500/10 group">
+                    <div class="w-14 h-14 bg-blue-50 text-brand-blue rounded-xl flex items-center justify-center mb-6 group-hover:bg-blue-600 group-hover:text-white transition-all duration-300">
+                        <i data-lucide="book-open" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-brand-blue">15 Core Modules</h3>
+                    <p class="text-slate-600 leading-relaxed">Covers the entire lifecycle: Requirements Gathering, Process Modelling, Agile/Scrum, and Stakeholder Management.</p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="bg-white p-8 rounded-2xl border border-slate-100 hover:border-orange-500/30 transition-all hover:shadow-xl hover:shadow-orange-500/10 group">
+                    <div class="w-14 h-14 bg-orange-50 text-brand-accent rounded-xl flex items-center justify-center mb-6 group-hover:bg-brand-accent group-hover:text-white transition-all duration-300">
+                        <i data-lucide="users" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-brand-blue">Junior vs Senior Ladders</h3>
+                    <p class="text-slate-600 leading-relaxed">Don't sound underqualified. Learn how a Junior answers vs. how a Senior Leader structures their response.</p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="bg-white p-8 rounded-2xl border border-slate-100 hover:border-green-500/30 transition-all hover:shadow-xl hover:shadow-green-500/10 group">
+                    <div class="w-14 h-14 bg-green-50 text-green-600 rounded-xl flex items-center justify-center mb-6 group-hover:bg-green-600 group-hover:text-white transition-all duration-300">
+                        <i data-lucide="headphones" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-brand-blue">Audio Companion</h3>
+                    <p class="text-slate-600 leading-relaxed">Commuting to your current job? Plug in and revise concepts without burnout. Turn dead time into prep time.</p>
+                </div>
+            </div>
+            
+            <div class="mt-12 text-center">
+                 <div class="inline-flex items-center gap-2 bg-orange-50 text-orange-700 px-6 py-2 rounded-full font-semibold border border-orange-100 hover:bg-orange-100 transition-colors cursor-default">
+                    <i data-lucide="check-circle" class="w-5 h-5"></i>
+                    Includes 45 Real-World Scenario Questions
+                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Blueprint Methodology -->
+    <section id="blueprint" class="py-20 bg-brand-blue text-white relative overflow-hidden">
+        <!-- Decoration -->
+        <div class="absolute top-0 right-0 w-64 h-64 bg-brand-accent rounded-full opacity-10 blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+        <div class="absolute bottom-0 left-0 w-96 h-96 bg-blue-600 rounded-full opacity-20 blur-3xl translate-y-1/2 -translate-x-1/2"></div>
+        
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="flex flex-col md:flex-row gap-12 items-center">
+                <div class="md:w-1/2">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">The "Interview Hot Seat" Blueprint</h2>
+                    <p class="text-slate-300 text-lg mb-8">Most candidates fail because they ramble. Our framework forces you to be concise, structured, and impactful.</p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex gap-4 items-start group">
+                            <div class="w-8 h-8 rounded-full bg-slate-800 border border-slate-700 group-hover:bg-brand-accent group-hover:border-brand-accent transition-colors flex items-center justify-center font-bold text-white shrink-0">1</div>
+                            <div>
+                                <h4 class="text-xl font-bold group-hover:text-brand-accent transition-colors">The Hook</h4>
+                                <p class="text-slate-400 text-sm">Grab the interviewer's attention immediately with a precise definition.</p>
+                            </div>
+                        </div>
+                        <div class="w-0.5 h-8 bg-slate-800 ml-4 group-hover:bg-slate-600 transition-colors"></div>
+                        <div class="flex gap-4 items-start group">
+                            <div class="w-8 h-8 rounded-full bg-slate-800 border border-slate-700 group-hover:bg-brand-accent group-hover:border-brand-accent transition-colors flex items-center justify-center font-bold text-white shrink-0">2</div>
+                            <div>
+                                <h4 class="text-xl font-bold group-hover:text-brand-accent transition-colors">The Why</h4>
+                                <p class="text-slate-400 text-sm">Explain the business value. Why does this concept matter to money/time?</p>
+                            </div>
+                        </div>
+                        <div class="w-0.5 h-8 bg-slate-800 ml-4"></div>
+                        <div class="flex gap-4 items-start group">
+                            <div class="w-8 h-8 rounded-full bg-slate-800 border border-slate-700 group-hover:bg-brand-accent group-hover:border-brand-accent transition-colors flex items-center justify-center font-bold text-white shrink-0">3</div>
+                            <div>
+                                <h4 class="text-xl font-bold group-hover:text-brand-accent transition-colors">Sticky Analogy</h4>
+                                <p class="text-slate-400 text-sm">Use a simple real-world comparison to prove you truly understand it.</p>
+                            </div>
+                        </div>
+                        <div class="w-0.5 h-8 bg-slate-800 ml-4"></div>
+                        <div class="flex gap-4 items-start group">
+                            <div class="w-8 h-8 rounded-full bg-white text-brand-blue flex items-center justify-center font-bold shrink-0 shadow-[0_0_15px_rgba(255,255,255,0.3)]">4</div>
+                            <div>
+                                <h4 class="text-xl font-bold text-white">Interview Hot Seat</h4>
+                                <p class="text-slate-400 text-sm">The final polish. How to deliver the answer under pressure.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-1/2 bg-white/5 backdrop-blur-md border border-white/10 p-8 rounded-2xl relative shadow-2xl">
+                    <div class="absolute -top-4 -right-4 bg-gradient-to-r from-brand-accent to-orange-600 text-white px-4 py-1 text-sm font-bold rounded shadow-lg transform rotate-3">
+                        SAMPLE STRATEGY
+                    </div>
+                    <div class="space-y-4 font-mono text-sm text-slate-300">
+                        <p><span class="text-orange-400 font-bold">Interviewer:</span> "Explain Gap Analysis."</p>
+                        <p><span class="text-slate-500">Average Answer:</span> "It is finding the difference between current and future state..."</p>
+                        <hr class="border-white/10 my-4">
+                        <div class="bg-brand-blue/50 p-4 rounded-lg border-l-2 border-green-400">
+                            <p class="mb-2"><span class="text-green-400 font-bold">Blueprint Answer:</span></p>
+                            <p class="italic text-white">"Gap Analysis is the strategic bridge between 'Where we are' and 'Where we want to be'.</p>
+                            <p class="mt-2 text-slate-400">Think of it like using Google Maps. You need your current location and destination to calculate the route. Without it, projects lack direction..."</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-brand-blue mb-4">Success Stories</h2>
+                <p class="text-slate-600">Don't take our word for it. Hear from people who got the offer.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Review 1 -->
+                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 hover:shadow-lg transition-all relative">
+                    <div class="text-brand-accent mb-4">
+                        <i data-lucide="quote" class="w-8 h-8 fill-current opacity-20"></i>
+                    </div>
+                    <p class="text-slate-700 italic mb-6">"I was rejected by Deloitte twice because I couldn't structure my answers. The 'Hook-Why-Analogy' framework changed everything. Got the offer last week!"</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center font-bold text-blue-700">RS</div>
+                        <div>
+                            <p class="font-bold text-brand-blue text-sm">Rohan S.</p>
+                            <p class="text-xs text-slate-500">Analyst @ Deloitte</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 hover:shadow-lg transition-all relative">
+                     <div class="text-brand-accent mb-4">
+                        <i data-lucide="quote" class="w-8 h-8 fill-current opacity-20"></i>
+                    </div>
+                    <p class="text-slate-700 italic mb-6">"Coming from a sales background, I had zero technical knowledge. The audio prep was a lifesaver. I listened to it on the metro every single day."</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-orange-100 flex items-center justify-center font-bold text-orange-700">PM</div>
+                        <div>
+                            <p class="font-bold text-brand-blue text-sm">Priya M.</p>
+                            <p class="text-xs text-slate-500">Junior BA @ Accenture</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 hover:shadow-lg transition-all relative">
+                     <div class="text-brand-accent mb-4">
+                        <i data-lucide="quote" class="w-8 h-8 fill-current opacity-20"></i>
+                    </div>
+                    <p class="text-slate-700 italic mb-6">"Best ₹249 I've ever spent. The Scenario Question Bank is gold. Two of the questions in my KPMG interview were directly from the playbook."</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center font-bold text-green-700">AK</div>
+                        <div>
+                            <p class="font-bold text-brand-blue text-sm">Arjun K.</p>
+                            <p class="text-xs text-slate-500">Associate Consultant</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Preview Section -->
+    <section id="preview" class="py-20 bg-slate-50 border-t border-slate-200">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-brand-blue">Look Inside the Playbook</h2>
+                <p class="text-slate-600 mt-2">No fluff. Just structured, actionable content.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Image 1 -->
+                <div class="doc-preview rounded-xl overflow-hidden border border-slate-200 bg-white h-80 relative group cursor-pointer">
+                    <img src="https://res.cloudinary.com/do7w7isgi/image/upload/v1768155101/Screenshot_2026-01-11_233949_b1nzdn.png" alt="Playbook Page 1" class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                        <i data-lucide="zoom-in" class="text-white w-8 h-8"></i>
+                    </div>
+                </div>
+                <!-- Image 2 -->
+                <div class="doc-preview rounded-xl overflow-hidden border border-slate-200 bg-white h-80 relative group cursor-pointer lg:mt-8">
+                    <img src="https://res.cloudinary.com/do7w7isgi/image/upload/v1768155094/Screenshot_2026-01-11_234001_jk2xlk.png" alt="Playbook Page 2" class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                        <i data-lucide="zoom-in" class="text-white w-8 h-8"></i>
+                    </div>
+                </div>
+                <!-- Image 3 -->
+                <div class="doc-preview rounded-xl overflow-hidden border border-slate-200 bg-white h-80 relative group cursor-pointer">
+                    <img src="https://res.cloudinary.com/do7w7isgi/image/upload/v1768155095/Screenshot_2026-01-11_234027_f7iax0.png" alt="Playbook Page 3" class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                        <i data-lucide="zoom-in" class="text-white w-8 h-8"></i>
+                    </div>
+                </div>
+                <!-- Image 4 -->
+                <div class="doc-preview rounded-xl overflow-hidden border border-slate-200 bg-white h-80 relative group cursor-pointer lg:mt-8">
+                    <img src="https://res.cloudinary.com/do7w7isgi/image/upload/v1768155094/Screenshot_2026-01-11_234013_ott7m0.png" alt="Playbook Page 4" class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                        <i data-lucide="zoom-in" class="text-white w-8 h-8"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-20 bg-white relative">
+        <div class="container mx-auto px-6 max-w-5xl">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-brand-blue mb-4">Invest in Your Career</h2>
+                <p class="text-slate-600">Less than the price of a movie ticket. A lifetime of ROI.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                
+                <!-- Basic Tier -->
+                <div class="bg-white border border-slate-200 rounded-3xl p-8 hover:shadow-xl transition-all relative">
+                    <h3 class="text-2xl font-bold text-brand-blue">The Analyst Blueprint</h3>
+                    <div class="my-4 flex items-baseline">
+                        <span class="text-4xl font-extrabold text-slate-800">₹149</span>
+                    </div>
+                    <p class="text-sm text-slate-500 mb-6 italic">Best for: "I want concepts + interview framing first"</p>
+                    
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-center gap-3">
+                            <i data-lucide="check" class="text-green-500 w-5 h-5"></i>
+                            <span class="text-slate-700">Tactical PDF Guide</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i data-lucide="check" class="text-green-500 w-5 h-5"></i>
+                            <span class="text-slate-700">Audio Companion</span>
+                        </li>
+                        <li class="flex items-center gap-3 opacity-50">
+                            <i data-lucide="x" class="text-slate-400 w-5 h-5"></i>
+                            <span class="text-slate-400 line-through">Question Bank (45 Scenarios)</span>
+                        </li>
+                    </ul>
+
+                    <button class="w-full py-3 border-2 border-brand-blue text-brand-blue font-bold rounded-xl hover:bg-brand-blue hover:text-white transition-colors">
+                        Get Blueprint
+                    </button>
+                </div>
+
+                <!-- Premium Tier -->
+                <div class="bg-gradient-to-br from-brand-blue to-slate-900 text-white rounded-3xl p-8 shadow-2xl relative transform md:-translate-y-4 border-2 border-brand-accent overflow-hidden group">
+                    <!-- Glow effect -->
+                    <div class="absolute top-0 right-0 w-64 h-64 bg-white opacity-5 blur-3xl rounded-full translate-x-1/2 -translate-y-1/2"></div>
+                    
+                    <div class="absolute top-0 right-0 bg-brand-accent text-white text-xs font-bold px-3 py-1 rounded-bl-lg rounded-tr-xl uppercase tracking-wider z-10">
+                        Most Popular
+                    </div>
+                    
+                    <h3 class="text-2xl font-bold relative z-10">Complete Bundle</h3>
+                    <div class="my-4 flex items-baseline relative z-10">
+                        <span class="text-5xl font-extrabold text-white">₹249</span>
+                        <span class="ml-2 text-slate-400 line-through decoration-red-500">₹999</span>
+                    </div>
+                    <p class="text-sm text-slate-300 mb-6 italic relative z-10">Best for: "I want clarity + practice + shortcuts"</p>
+                    
+                    <ul class="space-y-4 mb-8 relative z-10">
+                        <li class="flex items-center gap-3">
+                            <div class="bg-green-500/20 p-1 rounded-full"><i data-lucide="check" class="text-green-400 w-4 h-4"></i></div>
+                            <span class="text-slate-100">Analyst Blueprint (PDF + Audio)</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <div class="bg-green-500/20 p-1 rounded-full"><i data-lucide="check" class="text-green-400 w-4 h-4"></i></div>
+                            <span class="text-slate-100">Scenario Question Bank</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <div class="bg-green-500/20 p-1 rounded-full"><i data-lucide="check" class="text-green-400 w-4 h-4"></i></div>
+                            <span class="text-slate-100 font-bold text-brand-accent">Bonus: Interview Cheat Sheet</span>
+                        </li>
+                    </ul>
+
+                    <button class="w-full py-4 bg-brand-accent hover:bg-orange-600 text-white font-bold rounded-xl shadow-lg shadow-orange-500/40 transition-all hover:scale-[1.02] relative z-10">
+                        Get Complete Bundle
+                    </button>
+                    <p class="text-center text-xs text-slate-400 mt-4 flex justify-center items-center gap-1 relative z-10">
+                        <i data-lucide="lock" class="w-3 h-3"></i> Secure payment via Razorpay
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-20 bg-slate-50">
+        <div class="container mx-auto px-6 max-w-3xl">
+            <h2 class="text-3xl font-bold text-center text-brand-blue mb-12">Frequently Asked Questions</h2>
+            
+            <div class="space-y-4">
+                <!-- FAQ Item 1 -->
+                <div class="bg-white rounded-lg shadow-sm overflow-hidden faq-item">
+                    <button class="w-full px-6 py-4 text-left font-semibold text-slate-800 flex justify-between items-center focus:outline-none bg-white hover:bg-slate-50 transition-colors" onclick="toggleFaq(this)">
+                        <span>Who is this playbook for?</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-slate-400 transition-transform duration-300"></i>
+                    </button>
+                    <div class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out text-slate-600 px-6">
+                        <div class="pb-4 pt-2 border-t border-slate-100">
+                            It is specifically designed for professionals looking to switch careers into Business Analysis, or Junior BAs looking to crack Senior roles. Whether you come from Sales, Support, or Engineering, this bridges the gap.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="bg-white rounded-lg shadow-sm overflow-hidden faq-item">
+                    <button class="w-full px-6 py-4 text-left font-semibold text-slate-800 flex justify-between items-center focus:outline-none bg-white hover:bg-slate-50 transition-colors" onclick="toggleFaq(this)">
+                        <span>How do I receive the content?</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-slate-400 transition-transform duration-300"></i>
+                    </button>
+                    <div class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out text-slate-600 px-6">
+                        <div class="pb-4 pt-2 border-t border-slate-100">
+                            Immediately after payment, you will receive an email with a secure download link for the PDFs and access to the audio files.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="bg-white rounded-lg shadow-sm overflow-hidden faq-item">
+                    <button class="w-full px-6 py-4 text-left font-semibold text-slate-800 flex justify-between items-center focus:outline-none bg-white hover:bg-slate-50 transition-colors" onclick="toggleFaq(this)">
+                        <span>Is the audio downloadable?</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-slate-400 transition-transform duration-300"></i>
+                    </button>
+                    <div class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out text-slate-600 px-6">
+                        <div class="pb-4 pt-2 border-t border-slate-100">
+                            Yes! We know you want to learn on the go. You can download the MP3s to your phone and listen while commuting.
+                        </div>
+                    </div>
+                </div>
+
+                 <!-- FAQ Item 4 -->
+                 <div class="bg-white rounded-lg shadow-sm overflow-hidden faq-item">
+                    <button class="w-full px-6 py-4 text-left font-semibold text-slate-800 flex justify-between items-center focus:outline-none bg-white hover:bg-slate-50 transition-colors" onclick="toggleFaq(this)">
+                        <span>I have more questions. Who do I contact?</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-slate-400 transition-transform duration-300"></i>
+                    </button>
+                    <div class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out text-slate-600 px-6">
+                        <div class="pb-4 pt-2 border-t border-slate-100">
+                            You can reach out to our support team at <a href="mailto:crew@dotswitch.space" class="text-brand-accent font-semibold">crew@dotswitch.space</a>. We usually respond within 24 hours.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-brand-blue text-slate-400 py-12 border-t border-white/10">
+        <div class="container mx-auto px-6 text-center">
+            <div class="flex justify-center items-center gap-2 mb-4 text-white text-xl font-bold">
+                 <img src="https://res.cloudinary.com/do7w7isgi/image/upload/v1768156719/Untitled_256_x_256_px_yhlwhz.png" alt="DotSwitch Logo" class="w-8 h-8 rounded-lg">
+                DotSwitch.
+            </div>
+            <p class="mb-6 text-sm">Empowering the next generation of Business Analysts in India.</p>
+            <div class="flex justify-center space-x-6 text-sm">
+                <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+                <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+                <a href="mailto:crew@dotswitch.space" class="hover:text-white transition-colors">Contact</a>
+            </div>
+            <div class="mt-8 text-xs text-slate-600">
+                &copy; 2026 DotSwitch. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Interactions -->
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // FAQ Toggle Logic
+        function toggleFaq(button) {
+            const content = button.nextElementSibling;
+            // Lucide replaces <i> tags with <svg> tags, so we try to find svg first
+            const icon = button.querySelector('svg') || button.querySelector('i');
+            
+            // Close other open FAQs
+            const allFaqItems = document.querySelectorAll('.faq-item');
+            
+            allFaqItems.forEach(item => {
+                const itemButton = item.querySelector('button');
+                const itemContent = item.querySelector('div'); // The content container
+                
+                if (itemButton && itemButton !== button && itemContent && itemContent.style.maxHeight) {
+                    itemContent.style.maxHeight = null;
+                    const itemIcon = itemButton.querySelector('svg') || itemButton.querySelector('i');
+                    if (itemIcon) itemIcon.style.transform = 'rotate(0deg)';
+                }
+            });
+
+            if (content.style.maxHeight) {
+                content.style.maxHeight = null;
+                if (icon) icon.style.transform = 'rotate(0deg)';
+            } else {
+                content.style.maxHeight = content.scrollHeight + "px";
+                if (icon) icon.style.transform = 'rotate(180deg)';
+            }
+        }
+
+        // Particle Animation Logic
+        const canvas = document.getElementById('particles-canvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+        
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.vx = (Math.random() - 0.5) * 0.5;
+                this.vy = (Math.random() - 0.5) * 0.5;
+                this.size = Math.random() * 2 + 1;
+            }
+
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+
+                if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+                if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+            }
+
+            draw() {
+                // Changed from white to gray/blue for visibility on white background
+                ctx.fillStyle = 'rgba(15, 23, 42, 0.05)'; 
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        function initParticles() {
+            particles = [];
+            const particleCount = window.innerWidth < 768 ? 30 : 60; // Fewer particles on mobile
+            for (let i = 0; i < particleCount; i++) {
+                particles.push(new Particle());
+            }
+        }
+
+        function animateParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            for (let i = 0; i < particles.length; i++) {
+                particles[i].update();
+                particles[i].draw();
+                
+                // Draw connections
+                for (let j = i; j < particles.length; j++) {
+                    const dx = particles[i].x - particles[j].x;
+                    const dy = particles[i].y - particles[j].y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+                    
+                    if (distance < 150) {
+                        ctx.beginPath();
+                        // Changed line color to match dots
+                        ctx.strokeStyle = `rgba(15, 23, 42, ${0.05 - distance/3000})`;
+                        ctx.lineWidth = 1;
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+            requestAnimationFrame(animateParticles);
+        }
+
+        initParticles();
+        animateParticles();
+
+    </script>
+</body>
+</html>
