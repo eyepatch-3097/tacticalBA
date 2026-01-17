@@ -37,6 +37,7 @@
                         'float': 'float 6s ease-in-out infinite',
                         'float-delayed': 'float 6s ease-in-out 3s infinite',
                         'float-fast': 'float 4s ease-in-out infinite',
+                        'blob': 'blob 7s infinite',
                     },
                     keyframes: {
                         scroll: {
@@ -46,6 +47,12 @@
                         float: {
                             '0%, 100%': { transform: 'translateY(0)' },
                             '50%': { transform: 'translateY(-15px)' },
+                        },
+                        blob: {
+                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
                         }
                     }
                 }
@@ -158,23 +165,24 @@ src="https://www.facebook.com/tr?id=1505190673884810&ev=PageView&noscript=1"
                         For Aspiring Business Analysts
                     </div>
                     
-                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-brand-blue leading-tight tracking-tight">
+                    <h1 class="text-5xl md:text-6xl lg:text-5xl font-extrabold text-brand-blue leading-tight tracking-tight">
                         Crack Business Analyst Roles at <br class="hidden md:block" />
                         <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-red-600">Top Companies</span> <br class="hidden md:block" />
-                        with our Tactical BA Playbook.
+                        <span class="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-700">with our <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-blue to-blue-600">Tactical BA Playbook.</span></span>
                     </h1>
                     
-                    <p class="text-lg text-slate-600 max-w-xl leading-relaxed">
+                    <p class="text-xl md:text-2xl text-slate-600 max-w-xl leading-relaxed">
                         Stop memorizing definitions. Start solving problems. The tactical playbook designed to help you crack the case study rounds at the world's best firms.
                     </p>
 
                     <div class="flex flex-col sm:flex-row gap-4 pt-4">
-                        <a href="#pricing" class="px-8 py-4 bg-gradient-to-r from-brand-accent to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white rounded-xl font-bold text-lg shadow-xl shadow-orange-500/20 transition-all transform hover:-translate-y-1 w-full sm:w-auto text-center flex items-center justify-center gap-2">
+                        <!-- Updated Link to Razorpay -->
+                        <a href="https://rzp.io/rzp/PKsyLUeS" target="_blank" class="px-8 py-5 bg-gradient-to-r from-brand-accent to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white rounded-xl font-bold text-xl shadow-xl shadow-orange-500/20 transition-all transform hover:-translate-y-1 w-full sm:w-auto text-center flex items-center justify-center gap-2">
                             <span>Get Playbook @ ₹249</span>
-                            <span class="line-through text-white/70 text-base font-medium">₹999</span>
+                            <span class="line-through text-white/70 text-lg font-medium">₹999</span>
                         </a>
-                        <a href="#preview" class="px-8 py-4 bg-white border-2 border-slate-200 text-slate-700 hover:border-brand-accent hover:text-brand-accent rounded-xl font-bold text-lg transition-all w-full sm:w-auto flex items-center justify-center gap-2">
-                            <i data-lucide="eye" class="w-5 h-5"></i> View Preview
+                        <a href="#preview" class="px-8 py-5 bg-white border-2 border-slate-200 text-slate-700 hover:border-brand-accent hover:text-brand-accent rounded-xl font-bold text-xl transition-all w-full sm:w-auto flex items-center justify-center gap-2">
+                            <i data-lucide="eye" class="w-6 h-6"></i> View Preview
                         </a>
                     </div>
                     
@@ -270,8 +278,8 @@ src="https://www.facebook.com/tr?id=1505190673884810&ev=PageView&noscript=1"
 
         <div class="container mx-auto px-6 relative z-10">
             <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-brand-blue mb-4">Not Just a PDF. A Weapon.</h2>
-                <p class="text-slate-600 max-w-2xl mx-auto">This isn't generic theory. This is the exact framework used to clear senior analyst rounds.</p>
+                <h2 class="text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-brand-blue to-blue-700 mb-6">Not Just a PDF. A Weapon.</h2>
+                <p class="text-xl text-slate-600 max-w-2xl mx-auto">This isn't generic theory. This is the exact framework used to clear senior analyst rounds.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -280,8 +288,8 @@ src="https://www.facebook.com/tr?id=1505190673884810&ev=PageView&noscript=1"
                     <div class="w-14 h-14 bg-blue-50 text-brand-blue rounded-xl flex items-center justify-center mb-6 group-hover:bg-blue-600 group-hover:text-white transition-all duration-300">
                         <i data-lucide="book-open" class="w-7 h-7"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-3 text-brand-blue">15 Core Modules</h3>
-                    <p class="text-slate-600 leading-relaxed">Covers the entire lifecycle: Requirements Gathering, Process Modelling, Agile/Scrum, and Stakeholder Management.</p>
+                    <h3 class="text-2xl font-bold mb-3 text-brand-blue">15 Core Modules</h3>
+                    <p class="text-slate-600 leading-relaxed text-lg">Covers the entire lifecycle: Requirements Gathering, Process Modelling, Agile/Scrum, and Stakeholder Management.</p>
                 </div>
 
                 <!-- Feature 2 -->
@@ -289,8 +297,8 @@ src="https://www.facebook.com/tr?id=1505190673884810&ev=PageView&noscript=1"
                     <div class="w-14 h-14 bg-orange-50 text-brand-accent rounded-xl flex items-center justify-center mb-6 group-hover:bg-brand-accent group-hover:text-white transition-all duration-300">
                         <i data-lucide="users" class="w-7 h-7"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-3 text-brand-blue">Junior vs Senior Ladders</h3>
-                    <p class="text-slate-600 leading-relaxed">Don't sound underqualified. Learn how a Junior answers vs. how a Senior Leader structures their response.</p>
+                    <h3 class="text-2xl font-bold mb-3 text-brand-blue">Junior vs Senior Ladders</h3>
+                    <p class="text-slate-600 leading-relaxed text-lg">Don't sound underqualified. Learn how a Junior answers vs. how a Senior Leader structures their response.</p>
                 </div>
 
                 <!-- Feature 3 -->
@@ -298,14 +306,14 @@ src="https://www.facebook.com/tr?id=1505190673884810&ev=PageView&noscript=1"
                     <div class="w-14 h-14 bg-green-50 text-green-600 rounded-xl flex items-center justify-center mb-6 group-hover:bg-green-600 group-hover:text-white transition-all duration-300">
                         <i data-lucide="headphones" class="w-7 h-7"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-3 text-brand-blue">Audio Companion</h3>
-                    <p class="text-slate-600 leading-relaxed">Commuting to your current job? Plug in and revise concepts without burnout. Turn dead time into prep time.</p>
+                    <h3 class="text-2xl font-bold mb-3 text-brand-blue">Audio Companion</h3>
+                    <p class="text-slate-600 leading-relaxed text-lg">Commuting to your current job? Plug in and revise concepts without burnout. Turn dead time into prep time.</p>
                 </div>
             </div>
             
             <div class="mt-12 text-center">
-                 <div class="inline-flex items-center gap-2 bg-orange-50 text-orange-700 px-6 py-2 rounded-full font-semibold border border-orange-100 hover:bg-orange-100 transition-colors cursor-default">
-                    <i data-lucide="check-circle" class="w-5 h-5"></i>
+                 <div class="inline-flex items-center gap-2 bg-orange-50 text-orange-700 px-6 py-3 rounded-full font-bold border border-orange-100 hover:bg-orange-100 transition-colors cursor-default">
+                    <i data-lucide="check-circle" class="w-6 h-6"></i>
                     Includes 45 Real-World Scenario Questions
                  </div>
             </div>
@@ -321,39 +329,39 @@ src="https://www.facebook.com/tr?id=1505190673884810&ev=PageView&noscript=1"
         <div class="container mx-auto px-6 relative z-10">
             <div class="flex flex-col md:flex-row gap-12 items-center">
                 <div class="md:w-1/2">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-6">The "Interview Hot Seat" Blueprint</h2>
-                    <p class="text-slate-300 text-lg mb-8">Most candidates fail because they ramble. Our framework forces you to be concise, structured, and impactful.</p>
+                    <h2 class="text-4xl md:text-5xl font-extrabold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-white to-slate-400">The "Interview Hot Seat" Blueprint</h2>
+                    <p class="text-slate-300 text-xl mb-8 leading-relaxed">Most candidates fail because they ramble. Our framework forces you to be concise, structured, and impactful.</p>
                     
                     <div class="space-y-6">
                         <div class="flex gap-4 items-start group">
                             <div class="w-8 h-8 rounded-full bg-slate-800 border border-slate-700 group-hover:bg-brand-accent group-hover:border-brand-accent transition-colors flex items-center justify-center font-bold text-white shrink-0">1</div>
                             <div>
-                                <h4 class="text-xl font-bold group-hover:text-brand-accent transition-colors">The Hook</h4>
-                                <p class="text-slate-400 text-sm">Grab the interviewer's attention immediately with a precise definition.</p>
+                                <h4 class="text-2xl font-bold group-hover:text-brand-accent transition-colors">The Hook</h4>
+                                <p class="text-slate-400 text-base">Grab the interviewer's attention immediately with a precise definition.</p>
                             </div>
                         </div>
                         <div class="w-0.5 h-8 bg-slate-800 ml-4 group-hover:bg-slate-600 transition-colors"></div>
                         <div class="flex gap-4 items-start group">
                             <div class="w-8 h-8 rounded-full bg-slate-800 border border-slate-700 group-hover:bg-brand-accent group-hover:border-brand-accent transition-colors flex items-center justify-center font-bold text-white shrink-0">2</div>
                             <div>
-                                <h4 class="text-xl font-bold group-hover:text-brand-accent transition-colors">The Why</h4>
-                                <p class="text-slate-400 text-sm">Explain the business value. Why does this concept matter to money/time?</p>
+                                <h4 class="text-2xl font-bold group-hover:text-brand-accent transition-colors">The Why</h4>
+                                <p class="text-slate-400 text-base">Explain the business value. Why does this concept matter to money/time?</p>
                             </div>
                         </div>
                         <div class="w-0.5 h-8 bg-slate-800 ml-4"></div>
                         <div class="flex gap-4 items-start group">
                             <div class="w-8 h-8 rounded-full bg-slate-800 border border-slate-700 group-hover:bg-brand-accent group-hover:border-brand-accent transition-colors flex items-center justify-center font-bold text-white shrink-0">3</div>
                             <div>
-                                <h4 class="text-xl font-bold group-hover:text-brand-accent transition-colors">Sticky Analogy</h4>
-                                <p class="text-slate-400 text-sm">Use a simple real-world comparison to prove you truly understand it.</p>
+                                <h4 class="text-2xl font-bold group-hover:text-brand-accent transition-colors">Sticky Analogy</h4>
+                                <p class="text-slate-400 text-base">Use a simple real-world comparison to prove you truly understand it.</p>
                             </div>
                         </div>
                         <div class="w-0.5 h-8 bg-slate-800 ml-4"></div>
                         <div class="flex gap-4 items-start group">
                             <div class="w-8 h-8 rounded-full bg-white text-brand-blue flex items-center justify-center font-bold shrink-0 shadow-[0_0_15px_rgba(255,255,255,0.3)]">4</div>
                             <div>
-                                <h4 class="text-xl font-bold text-white">Interview Hot Seat</h4>
-                                <p class="text-slate-400 text-sm">The final polish. How to deliver the answer under pressure.</p>
+                                <h4 class="text-2xl font-bold text-white">Interview Hot Seat</h4>
+                                <p class="text-slate-400 text-base">The final polish. How to deliver the answer under pressure.</p>
                             </div>
                         </div>
                     </div>
@@ -362,14 +370,14 @@ src="https://www.facebook.com/tr?id=1505190673884810&ev=PageView&noscript=1"
                     <div class="absolute -top-4 -right-4 bg-gradient-to-r from-brand-accent to-orange-600 text-white px-4 py-1 text-sm font-bold rounded shadow-lg transform rotate-3">
                         SAMPLE STRATEGY
                     </div>
-                    <div class="space-y-4 font-mono text-sm text-slate-300">
+                    <div class="space-y-4 font-mono text-base text-slate-300">
                         <p><span class="text-orange-400 font-bold">Interviewer:</span> "Explain Gap Analysis."</p>
                         <p><span class="text-slate-500">Average Answer:</span> "It is finding the difference between current and future state..."</p>
                         <hr class="border-white/10 my-4">
-                        <div class="bg-brand-blue/50 p-4 rounded-lg border-l-2 border-green-400">
+                        <div class="bg-brand-blue/50 p-6 rounded-lg border-l-4 border-green-400">
                             <p class="mb-2"><span class="text-green-400 font-bold">Blueprint Answer:</span></p>
-                            <p class="italic text-white">"Gap Analysis is the strategic bridge between 'Where we are' and 'Where we want to be'.</p>
-                            <p class="mt-2 text-slate-400">Think of it like using Google Maps. You need your current location and destination to calculate the route. Without it, projects lack direction..."</p>
+                            <p class="italic text-white text-lg">"Gap Analysis is the strategic bridge between 'Where we are' and 'Where we want to be'.</p>
+                            <p class="mt-4 text-slate-400">Think of it like using Google Maps. You need your current location and destination to calculate the route. Without it, projects lack direction..."</p>
                         </div>
                     </div>
                 </div>
@@ -381,52 +389,52 @@ src="https://www.facebook.com/tr?id=1505190673884810&ev=PageView&noscript=1"
     <section id="testimonials" class="py-20 bg-white">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold text-brand-blue mb-4">Success Stories</h2>
-                <p class="text-slate-600">Don't take our word for it. Hear from people who got the offer.</p>
+                <h2 class="text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-brand-blue to-purple-700 mb-6">Success Stories</h2>
+                <p class="text-xl text-slate-600">Don't take our word for it. Hear from people who got the offer.</p>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- Review 1 -->
-                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 hover:shadow-lg transition-all relative">
+                <div class="bg-slate-50 p-8 rounded-2xl border border-slate-100 hover:shadow-lg transition-all relative">
                     <div class="text-brand-accent mb-4">
-                        <i data-lucide="quote" class="w-8 h-8 fill-current opacity-20"></i>
+                        <i data-lucide="quote" class="w-10 h-10 fill-current opacity-20"></i>
                     </div>
-                    <p class="text-slate-700 italic mb-6">"I was rejected by Deloitte twice because I couldn't structure my answers. The 'Hook-Why-Analogy' framework changed everything. Got the offer last week!"</p>
+                    <p class="text-slate-700 italic mb-6 text-lg">"I was rejected by Deloitte twice because I couldn't structure my answers. The 'Hook-Why-Analogy' framework changed everything. Got the offer last week!"</p>
                     <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center font-bold text-blue-700">RS</div>
+                        <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center font-bold text-blue-700 text-lg">RS</div>
                         <div>
-                            <p class="font-bold text-brand-blue text-sm">Rohan S.</p>
-                            <p class="text-xs text-slate-500">Analyst @ Deloitte</p>
+                            <p class="font-bold text-brand-blue text-base">Rohan S.</p>
+                            <p class="text-sm text-slate-500">Analyst @ Deloitte</p>
                         </div>
                     </div>
                 </div>
 
                 <!-- Review 2 -->
-                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 hover:shadow-lg transition-all relative">
+                <div class="bg-slate-50 p-8 rounded-2xl border border-slate-100 hover:shadow-lg transition-all relative">
                      <div class="text-brand-accent mb-4">
-                        <i data-lucide="quote" class="w-8 h-8 fill-current opacity-20"></i>
+                        <i data-lucide="quote" class="w-10 h-10 fill-current opacity-20"></i>
                     </div>
-                    <p class="text-slate-700 italic mb-6">"Coming from a sales background, I had zero technical knowledge. The audio prep was a lifesaver. I listened to it on the metro every single day."</p>
+                    <p class="text-slate-700 italic mb-6 text-lg">"Coming from a sales background, I had zero technical knowledge. The audio prep was a lifesaver. I listened to it on the metro every single day."</p>
                     <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 rounded-full bg-orange-100 flex items-center justify-center font-bold text-orange-700">PM</div>
+                        <div class="w-12 h-12 rounded-full bg-orange-100 flex items-center justify-center font-bold text-orange-700 text-lg">PM</div>
                         <div>
-                            <p class="font-bold text-brand-blue text-sm">Priya M.</p>
-                            <p class="text-xs text-slate-500">Junior BA @ Accenture</p>
+                            <p class="font-bold text-brand-blue text-base">Priya M.</p>
+                            <p class="text-sm text-slate-500">Junior BA @ Accenture</p>
                         </div>
                     </div>
                 </div>
 
                 <!-- Review 3 -->
-                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 hover:shadow-lg transition-all relative">
+                <div class="bg-slate-50 p-8 rounded-2xl border border-slate-100 hover:shadow-lg transition-all relative">
                      <div class="text-brand-accent mb-4">
-                        <i data-lucide="quote" class="w-8 h-8 fill-current opacity-20"></i>
+                        <i data-lucide="quote" class="w-10 h-10 fill-current opacity-20"></i>
                     </div>
-                    <p class="text-slate-700 italic mb-6">"Best ₹249 I've ever spent. The Scenario Question Bank is gold. Two of the questions in my KPMG interview were directly from the playbook."</p>
+                    <p class="text-slate-700 italic mb-6 text-lg">"Best ₹249 I've ever spent. The Scenario Question Bank is gold. Two of the questions in my KPMG interview were directly from the playbook."</p>
                     <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center font-bold text-green-700">AK</div>
+                        <div class="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center font-bold text-green-700 text-lg">AK</div>
                         <div>
-                            <p class="font-bold text-brand-blue text-sm">Arjun K.</p>
-                            <p class="text-xs text-slate-500">Associate Consultant</p>
+                            <p class="font-bold text-brand-blue text-base">Arjun K.</p>
+                            <p class="text-sm text-slate-500">Associate Consultant</p>
                         </div>
                     </div>
                 </div>
@@ -438,8 +446,8 @@ src="https://www.facebook.com/tr?id=1505190673884810&ev=PageView&noscript=1"
     <section id="preview" class="py-20 bg-slate-50 border-t border-slate-200">
         <div class="container mx-auto px-6">
             <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-brand-blue">Look Inside the Playbook</h2>
-                <p class="text-slate-600 mt-2">No fluff. Just structured, actionable content.</p>
+                <h2 class="text-4xl font-extrabold text-brand-blue">Look Inside the Playbook</h2>
+                <p class="text-slate-600 mt-2 text-lg">No fluff. Just structured, actionable content.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -479,8 +487,8 @@ src="https://www.facebook.com/tr?id=1505190673884810&ev=PageView&noscript=1"
     <section id="pricing" class="py-20 bg-white relative">
         <div class="container mx-auto px-6 max-w-5xl">
             <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-brand-blue mb-4">Invest in Your Career</h2>
-                <p class="text-slate-600">Less than the price of a movie ticket. A lifetime of ROI.</p>
+                <h2 class="text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-brand-blue to-green-600 mb-4">Invest in Your Career</h2>
+                <p class="text-xl text-slate-600">Less than the price of a movie ticket. A lifetime of ROI.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
@@ -489,66 +497,66 @@ src="https://www.facebook.com/tr?id=1505190673884810&ev=PageView&noscript=1"
                 <div class="bg-white border border-slate-200 rounded-3xl p-8 hover:shadow-xl transition-all relative">
                     <h3 class="text-2xl font-bold text-brand-blue">The Analyst Blueprint</h3>
                     <div class="my-4 flex items-baseline">
-                        <span class="text-4xl font-extrabold text-slate-800">₹149</span>
+                        <span class="text-5xl font-extrabold text-slate-800">₹149</span>
                     </div>
                     <p class="text-sm text-slate-500 mb-6 italic">Best for: "I want concepts + interview framing first"</p>
                     
                     <ul class="space-y-4 mb-8">
                         <li class="flex items-center gap-3">
-                            <i data-lucide="check" class="text-green-500 w-5 h-5"></i>
-                            <span class="text-slate-700">Tactical PDF Guide</span>
+                            <i data-lucide="check" class="text-green-500 w-6 h-6"></i>
+                            <span class="text-slate-700 text-lg">Tactical PDF Guide</span>
                         </li>
                         <li class="flex items-center gap-3">
-                            <i data-lucide="check" class="text-green-500 w-5 h-5"></i>
-                            <span class="text-slate-700">Audio Companion</span>
+                            <i data-lucide="check" class="text-green-500 w-6 h-6"></i>
+                            <span class="text-slate-700 text-lg">Audio Companion</span>
                         </li>
                         <li class="flex items-center gap-3 opacity-50">
-                            <i data-lucide="x" class="text-slate-400 w-5 h-5"></i>
-                            <span class="text-slate-400 line-through">Question Bank (45 Scenarios)</span>
+                            <i data-lucide="x" class="text-slate-400 w-6 h-6"></i>
+                            <span class="text-slate-400 line-through text-lg">Question Bank (45 Scenarios)</span>
                         </li>
                     </ul>
 
-                    <a href="https://rzp.io/rzp/J7D8nIkW" target="_blank" class="block text-center w-full py-3 border-2 border-brand-blue text-brand-blue font-bold rounded-xl hover:bg-brand-blue hover:text-white transition-colors">
+                    <a href="https://rzp.io/rzp/J7D8nIkW" target="_blank" class="block text-center w-full py-4 border-2 border-brand-blue text-brand-blue font-bold text-lg rounded-xl hover:bg-brand-blue hover:text-white transition-colors">
                         Get Blueprint
                     </a>
                 </div>
 
                 <!-- Premium Tier -->
-                <div class="bg-gradient-to-br from-brand-blue to-slate-900 text-white rounded-3xl p-8 shadow-2xl relative transform md:-translate-y-4 border-2 border-brand-accent overflow-hidden group">
+                <div class="bg-gradient-to-br from-brand-blue to-slate-900 text-white rounded-3xl p-10 shadow-2xl relative transform md:-translate-y-4 border-2 border-brand-accent overflow-hidden group">
                     <!-- Glow effect -->
                     <div class="absolute top-0 right-0 w-64 h-64 bg-white opacity-5 blur-3xl rounded-full translate-x-1/2 -translate-y-1/2"></div>
                     
-                    <div class="absolute top-0 right-0 bg-brand-accent text-white text-xs font-bold px-3 py-1 rounded-bl-lg rounded-tr-xl uppercase tracking-wider z-10">
+                    <div class="absolute top-0 right-0 bg-brand-accent text-white text-sm font-bold px-4 py-1.5 rounded-bl-lg rounded-tr-xl uppercase tracking-wider z-10">
                         Most Popular
                     </div>
                     
-                    <h3 class="text-2xl font-bold relative z-10">Complete Bundle</h3>
+                    <h3 class="text-3xl font-bold relative z-10">Complete Bundle</h3>
                     <div class="my-4 flex items-baseline relative z-10">
-                        <span class="text-5xl font-extrabold text-white">₹249</span>
-                        <span class="ml-2 text-slate-400 line-through decoration-red-500">₹999</span>
+                        <span class="text-6xl font-extrabold text-white">₹249</span>
+                        <span class="ml-3 text-2xl text-slate-400 line-through decoration-red-500">₹999</span>
                     </div>
-                    <p class="text-sm text-slate-300 mb-6 italic relative z-10">Best for: "I want clarity + practice + shortcuts"</p>
+                    <p class="text-base text-slate-300 mb-8 italic relative z-10">Best for: "I want clarity + practice + shortcuts"</p>
                     
-                    <ul class="space-y-4 mb-8 relative z-10">
+                    <ul class="space-y-5 mb-10 relative z-10">
                         <li class="flex items-center gap-3">
-                            <div class="bg-green-500/20 p-1 rounded-full"><i data-lucide="check" class="text-green-400 w-4 h-4"></i></div>
-                            <span class="text-slate-100">Analyst Blueprint (PDF + Audio)</span>
+                            <div class="bg-green-500/20 p-1.5 rounded-full"><i data-lucide="check" class="text-green-400 w-5 h-5"></i></div>
+                            <span class="text-slate-100 text-lg">Analyst Blueprint (PDF + Audio)</span>
                         </li>
                         <li class="flex items-center gap-3">
-                            <div class="bg-green-500/20 p-1 rounded-full"><i data-lucide="check" class="text-green-400 w-4 h-4"></i></div>
-                            <span class="text-slate-100">Scenario Question Bank</span>
+                            <div class="bg-green-500/20 p-1.5 rounded-full"><i data-lucide="check" class="text-green-400 w-5 h-5"></i></div>
+                            <span class="text-slate-100 text-lg">Scenario Question Bank</span>
                         </li>
                         <li class="flex items-center gap-3">
-                            <div class="bg-green-500/20 p-1 rounded-full"><i data-lucide="check" class="text-green-400 w-4 h-4"></i></div>
-                            <span class="text-slate-100 font-bold text-brand-accent">Bonus: Interview Cheat Sheet</span>
+                            <div class="bg-green-500/20 p-1.5 rounded-full"><i data-lucide="check" class="text-green-400 w-5 h-5"></i></div>
+                            <span class="text-slate-100 text-lg font-bold text-brand-accent">Bonus: Interview Cheat Sheet</span>
                         </li>
                     </ul>
 
-                    <a href="https://rzp.io/rzp/PKsyLUeS" target="_blank" class="block text-center w-full py-4 bg-brand-accent hover:bg-orange-600 text-white font-bold rounded-xl shadow-lg shadow-orange-500/40 transition-all hover:scale-[1.02] relative z-10">
+                    <a href="https://rzp.io/rzp/PKsyLUeS" target="_blank" class="block text-center w-full py-5 bg-brand-accent hover:bg-orange-600 text-white font-bold text-xl rounded-xl shadow-lg shadow-orange-500/40 transition-all hover:scale-[1.02] relative z-10">
                         Get Complete Bundle
                     </a>
-                    <p class="text-center text-xs text-slate-400 mt-4 flex justify-center items-center gap-1 relative z-10">
-                        <i data-lucide="lock" class="w-3 h-3"></i> Secure payment via Razorpay
+                    <p class="text-center text-sm text-slate-400 mt-5 flex justify-center items-center gap-1 relative z-10">
+                        <i data-lucide="lock" class="w-4 h-4"></i> Secure payment via Razorpay
                     </p>
                 </div>
 
@@ -559,17 +567,17 @@ src="https://www.facebook.com/tr?id=1505190673884810&ev=PageView&noscript=1"
     <!-- FAQ Section -->
     <section id="faq" class="py-20 bg-slate-50">
         <div class="container mx-auto px-6 max-w-3xl">
-            <h2 class="text-3xl font-bold text-center text-brand-blue mb-12">Frequently Asked Questions</h2>
+            <h2 class="text-4xl font-bold text-center text-brand-blue mb-12">Frequently Asked Questions</h2>
             
             <div class="space-y-4">
                 <!-- FAQ Item 1 -->
                 <div class="bg-white rounded-lg shadow-sm overflow-hidden faq-item">
-                    <button class="w-full px-6 py-4 text-left font-semibold text-slate-800 flex justify-between items-center focus:outline-none bg-white hover:bg-slate-50 transition-colors" onclick="toggleFaq(this)">
+                    <button class="w-full px-6 py-5 text-left font-semibold text-slate-800 flex justify-between items-center focus:outline-none bg-white hover:bg-slate-50 transition-colors text-lg" onclick="toggleFaq(this)">
                         <span>Who is this playbook for?</span>
-                        <i data-lucide="chevron-down" class="w-5 h-5 text-slate-400 transition-transform duration-300"></i>
+                        <i data-lucide="chevron-down" class="w-6 h-6 text-slate-400 transition-transform duration-300"></i>
                     </button>
                     <div class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out text-slate-600 px-6">
-                        <div class="pb-4 pt-2 border-t border-slate-100">
+                        <div class="pb-6 pt-2 border-t border-slate-100 text-lg">
                             It is specifically designed for professionals looking to switch careers into Business Analysis, or Junior BAs looking to crack Senior roles. Whether you come from Sales, Support, or Engineering, this bridges the gap.
                         </div>
                     </div>
@@ -577,12 +585,12 @@ src="https://www.facebook.com/tr?id=1505190673884810&ev=PageView&noscript=1"
 
                 <!-- FAQ Item 2 -->
                 <div class="bg-white rounded-lg shadow-sm overflow-hidden faq-item">
-                    <button class="w-full px-6 py-4 text-left font-semibold text-slate-800 flex justify-between items-center focus:outline-none bg-white hover:bg-slate-50 transition-colors" onclick="toggleFaq(this)">
+                    <button class="w-full px-6 py-5 text-left font-semibold text-slate-800 flex justify-between items-center focus:outline-none bg-white hover:bg-slate-50 transition-colors text-lg" onclick="toggleFaq(this)">
                         <span>How do I receive the content?</span>
-                        <i data-lucide="chevron-down" class="w-5 h-5 text-slate-400 transition-transform duration-300"></i>
+                        <i data-lucide="chevron-down" class="w-6 h-6 text-slate-400 transition-transform duration-300"></i>
                     </button>
                     <div class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out text-slate-600 px-6">
-                        <div class="pb-4 pt-2 border-t border-slate-100">
+                        <div class="pb-6 pt-2 border-t border-slate-100 text-lg">
                             Immediately after payment, you will receive an email with a secure download link for the PDFs and access to the audio files.
                         </div>
                     </div>
@@ -590,12 +598,12 @@ src="https://www.facebook.com/tr?id=1505190673884810&ev=PageView&noscript=1"
 
                 <!-- FAQ Item 3 -->
                 <div class="bg-white rounded-lg shadow-sm overflow-hidden faq-item">
-                    <button class="w-full px-6 py-4 text-left font-semibold text-slate-800 flex justify-between items-center focus:outline-none bg-white hover:bg-slate-50 transition-colors" onclick="toggleFaq(this)">
+                    <button class="w-full px-6 py-5 text-left font-semibold text-slate-800 flex justify-between items-center focus:outline-none bg-white hover:bg-slate-50 transition-colors text-lg" onclick="toggleFaq(this)">
                         <span>Is the audio downloadable?</span>
-                        <i data-lucide="chevron-down" class="w-5 h-5 text-slate-400 transition-transform duration-300"></i>
+                        <i data-lucide="chevron-down" class="w-6 h-6 text-slate-400 transition-transform duration-300"></i>
                     </button>
                     <div class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out text-slate-600 px-6">
-                        <div class="pb-4 pt-2 border-t border-slate-100">
+                        <div class="pb-6 pt-2 border-t border-slate-100 text-lg">
                             Yes! We know you want to learn on the go. You can download the MP3s to your phone and listen while commuting.
                         </div>
                     </div>
@@ -603,12 +611,12 @@ src="https://www.facebook.com/tr?id=1505190673884810&ev=PageView&noscript=1"
 
                  <!-- FAQ Item 4 -->
                  <div class="bg-white rounded-lg shadow-sm overflow-hidden faq-item">
-                    <button class="w-full px-6 py-4 text-left font-semibold text-slate-800 flex justify-between items-center focus:outline-none bg-white hover:bg-slate-50 transition-colors" onclick="toggleFaq(this)">
+                    <button class="w-full px-6 py-5 text-left font-semibold text-slate-800 flex justify-between items-center focus:outline-none bg-white hover:bg-slate-50 transition-colors text-lg" onclick="toggleFaq(this)">
                         <span>I have more questions. Who do I contact?</span>
-                        <i data-lucide="chevron-down" class="w-5 h-5 text-slate-400 transition-transform duration-300"></i>
+                        <i data-lucide="chevron-down" class="w-6 h-6 text-slate-400 transition-transform duration-300"></i>
                     </button>
                     <div class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out text-slate-600 px-6">
-                        <div class="pb-4 pt-2 border-t border-slate-100">
+                        <div class="pb-6 pt-2 border-t border-slate-100 text-lg">
                             You can reach out to our support team at <a href="mailto:crew@dotswitch.space" class="text-brand-accent font-semibold">crew@dotswitch.space</a>. We usually respond within 24 hours.
                         </div>
                     </div>
